@@ -1,0 +1,35 @@
+<html>
+   <head>
+     <title>Canvas Intro</title>
+    <!---on github see Bijoyan>
+   </head>
+   <body>
+     <!-----Used to define a box with black border id ctx---->
+     <canvas height="500" width="500" style="border:2px solid #000000" id="ctx" />
+     <script>
+     //Passing to reference to javascript with id and getContext gives 2d dimension
+         var ctx = document.getElementById('ctx').getContext('2d');
+         //used to change size and font family
+         ctx.font = '30px Calibri';
+         //used to define Hello world at specific pixel 150 250
+       ctx.fillText("Hello WOrld", 150 ,50);
+                     //all the pixel are in (x,y)
+          //used to give stroke
+       ctx.strokeText("Hello WOrld", 150 ,80);
+       //moveTo is used to move to a specific position
+       ctx.moveTo(100,350);
+       //lineTo is used to tell the cpu that we need a line
+       ctx.lineTo(200,350);
+       //only after using stroke will the line be visible
+       ctx.stroke();
+       //used for giving a colour will be used for elements below
+       ctx.save();
+       ctx.fillStyle = 'red';
+       //(x,y,length,width)for fillRect
+       ctx.fillRect(300,400,150,50);
+       ctx.restore();
+       ctx.fillRect(50,400,150 ,50);
+     </script>
+
+    </body>
+</html>
