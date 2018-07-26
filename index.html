@@ -7,6 +7,23 @@
      <!-----Used to define a box with black border id ctx---->
      <canvas height="500" width="500" style="border:2px solid #000000" id="ctx" />
      <script>
+       var ctx = document.getElementById('ctx').getContext('2d');
+       //this function will read input from mouse and respond to it by making rectangle
+       //It considers only left mouse click
+       document.getElementById('ctx').onmouseup = function(){
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(0,0,30,30);
+       }
+       //when using input from keyboard we need to pass a parameter because there are many buttons on the keyboard
+       //we use the ASCII value of keys
+       document.onkeydown = function(event){
+          // A - 65
+          //Upper Arrow - 38
+          //Space Bar - 32
+          if(event.keyCode == 65){
+            ctx.fillText('A is pressed',0,100);
+          }
+       }
      //javascript  function
        myFun = function(length,breadth){
          //console.log('Hello1');
@@ -20,7 +37,7 @@
       myFun1 = function(){
         console.log("hero");
       }
-      //Call this is Function myFun1 after every 1000 millisecond //this will be 1fps game
+      //Call this is Function myFun1 after every 1000 millisecond //this will be 1fps game for 1000
       setInterval(myFun1,100);
        //this is javascript object
         var car = {
@@ -41,7 +58,7 @@
       //console.log('Height' + car.height);
       //console.log('Seats:' + car .seats);
      //Passing to reference to javascript with id and getContext gives 2d dimension
-         var ctx = document.getElementById('ctx').getContext('2d');
+
          ctx.save();
          ctx.fillStyle = square.color;
          ctx.fillRect(square.x,square.y,square.width,square.height);
