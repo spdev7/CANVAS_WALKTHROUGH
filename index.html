@@ -7,8 +7,45 @@
      <!-----Used to define a box with black border id ctx---->
      <canvas height="500" width="500" style="border:2px solid #000000" id="ctx" />
      <script>
+     //javascript  function
+       myFun = function(length,breadth){
+         //console.log('Hello1');
+         //console.log('Hello2');
+         var a = length * breadth;
+         return a;
+       }
+       //calling a function
+       console.log(myFun(10,20)) ;
+
+      myFun1 = function(){
+        console.log("hero");
+      }
+      //Call this is Function myFun1 after every 1000 millisecond //this will be 1fps game
+      setInterval(myFun1,100);
+       //this is javascript object
+        var car = {
+          speed:300,
+          height:200,
+          seats:4
+        };
+        var square = {
+          width:200,
+          height:200,
+          x:100,
+          y:200,
+          color:'red'
+        }
+      //  console.log(car);
+      //for calling javascript object we use variablename.property
+      //console.log('Speed:' +car.speed);
+      //console.log('Height' + car.height);
+      //console.log('Seats:' + car .seats);
      //Passing to reference to javascript with id and getContext gives 2d dimension
          var ctx = document.getElementById('ctx').getContext('2d');
+         ctx.save();
+         ctx.fillStyle = square.color;
+         ctx.fillRect(square.x,square.y,square.width,square.height);
+         ctx.restore();
          //used to change size and font family
          ctx.font = '30px Calibri';
          //used to define Hello world at specific pixel 150 250
@@ -22,11 +59,13 @@
        ctx.lineTo(200,350);
        //only after using stroke will the line be visible
        ctx.stroke();
-       //used for giving a colour will be used for elements below
-       ctx.save();
+      //it is used to save all the properties upto this point like colour,size that can be reversed later
+      ctx.save();
+        //used for giving a colour will be used for elements below
        ctx.fillStyle = 'red';
        //(x,y,length,width)for fillRect
        ctx.fillRect(300,400,150,50);
+       //it is ued to reverse all  the changes made upto saved point
        ctx.restore();
        ctx.fillRect(50,400,150 ,50);
      </script>
